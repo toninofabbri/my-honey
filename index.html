@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Apicoltura d'Oro — Miele Artigianale e Locale</title>
+  <meta name="description" content="Scopri il nostro miele puro e artigianale. Dalla natura alla tua tavola, acquista i nostri migliori mieli locali. Miele 100% naturale." />
+  <meta name="keywords" content="miele artigianale, apicoltura, vendita miele online, miele locale, pappa reale, propoli, landing page miele, template php javascript css" />
+  <meta name="author" content="Il Tuo Nome/Azienda" />
+  <meta property="og:title" content="Apicoltura d'Oro — Miele Artigianale e Locale" />
+  <meta property="og:description" content="Scopri il nostro miele puro e artigianale. Dalla natura alla tua tavola, acquista i nostri migliori mieli locali." />
+  <meta property="og:type" content="website" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- <link href="style.css" rel="stylesheet">
+ -->
+  <style>
+    :root {
+      --primary: #f59e0b; /* Amber 500 */
+      --primary-dark: #d97706; /* Amber 600 */
+      --accent: #b45309; /* Amber 700 */
+      --bg: #fffbeb; /* Amber 50 */
+      --card: #ffffff;
+      --text: #451a03; /* Orange 900 - Dark Brown */
+      --muted: #78350f; /* Amber 900 */
+      --maxw: 1200px;
+      font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--text); line-height: 1.6; }
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 24px 16px; }
+    
+    /* Header */
+    header { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; border-bottom: 2px solid rgba(245, 158, 11, 0.2); margin-bottom: 30px; }
+    .brand { font-weight: 700; color: var(--primary-dark); font-size: 1.8rem; display: flex; align-items: center; gap: 8px; text-decoration: none; }
+    .brand svg { width: 32px; height: 32px; fill: var(--primary); }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a.link { text-decoration: none; color: var(--text); font-weight: 600; transition: color 0.3s; }
+    .nav-links a.link:hover { color: var(--primary-dark); }
+    .tel { background: var(--primary); color: #fff; padding: 10px 20px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: background 0.3s, transform 0.2s; display: inline-block; box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3); }
+    .tel:hover { background: var(--primary-dark); transform: translateY(-2px); }
+
+    /* Hero */
+    .hero { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border-radius: 20px; padding: 60px 40px; display: flex; gap: 40px; align-items: center; box-shadow: 0 10px 30px rgba(245, 158, 11, 0.1); }
+    .hero-left { flex: 1; }
+    .hero h1 { margin: 0 0 16px; font-size: 3.2rem; line-height: 1.1; color: var(--text); }
+    .hero h1 span { color: var(--primary-dark); }
+    .hero p { margin: 0 0 30px; color: var(--muted); font-size: 1.2rem; }
+    .cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn { background: var(--primary); color: #fff; padding: 14px 28px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4); display: inline-block; cursor: pointer; border: none;}
+    .btn:hover { background: var(--primary-dark); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5); }
+    .btn.alt { background: transparent; color: var(--primary-dark); border: 2px solid var(--primary); box-shadow: none; }
+    .btn.alt:hover { background: rgba(245, 158, 11, 0.1); transform: translateY(-3px); }
+    
+    .hero-right { width: 40%; display: flex; justify-content: center; position: relative; }
+    .hero-img-container { position: relative; width: 100%; padding-bottom: 100%; border-radius: 50%; overflow: hidden; box-shadow: 0 20px 40px rgba(120, 53, 15, 0.15); border: 8px solid white; transition: transform 0.5s ease; }
+    .hero-img-container:hover { transform: scale(1.02); }
+    .hero-img-container img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+    .badge { position: absolute; bottom: 10px; right: 10px; background: white; border-radius: 50%; font-weight: bold; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.15); width: 110px; height: 110px; display: flex; align-items: center; justify-content: center; flex-direction: column; color: var(--primary-dark); transform: rotate(10deg); animation: float 3s ease-in-out infinite; border: 4px solid var(--primary); }
+    .badge span { font-size: 1.8rem; line-height: 1; }
+    .badge small { font-size: 0.8rem; color: var(--muted); }
+    @keyframes float { 0%, 100% { transform: translateY(0) rotate(10deg); } 50% { transform: translateY(-10px) rotate(5deg); } }
+
+    /* Features Section */
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin: 80px 0; }
+    .feature-card { background: var(--card); padding: 40px 24px; border-radius: 16px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.03); transition: transform 0.3s, box-shadow 0.3s; border: 1px solid rgba(245, 158, 11, 0.1); }
+    .feature-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(245, 158, 11, 0.15); }
+    .feature-icon { width: 70px; height: 70px; background: #fef3c7; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: var(--primary-dark); }
+    .feature-icon svg { width: 36px; height: 36px; fill: currentColor; }
+    .feature-card h3 { margin: 0 0 12px; font-size: 1.4rem; color: var(--text); }
+    .feature-card p { margin: 0; color: var(--muted); line-height: 1.5;}
+
+    /* Catalog */
+    .section-title { text-align: center; margin-bottom: 50px; }
+    .section-title h2 { font-size: 2.8rem; color: var(--text); margin: 0 0 16px; }
+    .section-title p { color: var(--muted); font-size: 1.2rem; max-width: 650px; margin: 0 auto; }
+    
+    .catalog { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; margin: 40px 0 80px; }
+    .product { background: var(--card); border-radius: 20px; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.06); transition: transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column; position: relative; }
+    .product:hover { transform: translateY(-12px); box-shadow: 0 20px 40px rgba(245, 158, 11, 0.2); }
+    .product a.img-link { display: block; overflow: hidden; position: relative; cursor: pointer; }
+    .product img { width: 100%; height: 280px; object-fit: cover; transition: transform 0.6s ease; }
+    .product a.img-link:hover img { transform: scale(1.1); }
+    .product-overlay { position: absolute; inset: 0; background: rgba(245, 158, 11, 0.2); opacity: 0; transition: opacity 0.3s; display: flex; align-items: center; justify-content: center; }
+    .product a.img-link:hover .product-overlay { opacity: 1; }
+    .view-btn { background: white; color: var(--primary-dark); padding: 10px 20px; border-radius: 50px; font-weight: bold; transform: translateY(20px); transition: transform 0.3s; }
+    .product a.img-link:hover .view-btn { transform: translateY(0); }
+    
+    .product-content { padding: 24px; display: flex; flex-direction: column; flex-grow: 1; }
+    .product .title { font-weight: 700; font-size: 1.5rem; margin-bottom: 10px; color: var(--text); text-decoration: none; cursor: pointer; transition: color 0.2s;}
+    .product .title:hover { color: var(--primary-dark); }
+    .product .desc { color: var(--muted); font-size: 1rem; margin-bottom: 20px; flex-grow: 1; }
+    .product-bottom { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
+    .price { color: var(--accent); font-weight: 700; font-size: 1.6rem; }
+    .add-to-cart { background: #fef3c7; color: var(--primary-dark); width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s; border: none; cursor: pointer; }
+    .add-to-cart svg { width: 20px; height: 20px; fill: currentColor; }
+    .add-to-cart:hover { background: var(--primary); color: white; transform: scale(1.1); box-shadow: 0 4px 10px rgba(245, 158, 11, 0.4); }
+    
+    /* Process Section */
+    .process { background: #fef3c7; border-radius: 24px; padding: 80px 40px; margin: 100px 0; text-align: center; }
+    .process h2 { font-size: 2.8rem; margin-bottom: 50px; color: var(--text); }
+    .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; position: relative; }
+    .step { position: relative; z-index: 1; }
+    .step-img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 6px solid white; box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin: 0 auto 24px; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    .step:hover .step-img { transform: scale(1.1) rotate(5deg); }
+    .step h4 { font-size: 1.4rem; margin: 0 0 12px; color: var(--text); }
+    .step p { font-size: 1rem; color: var(--muted); }
+
+    /* Map & Contact */
+    .contact-section { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 80px 0; background: var(--card); border-radius: 24px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
+    .contact-form-container { padding: 50px; }
+    .contact-form-container h2 { font-size: 2.4rem; margin: 0 0 10px; }
+    .contact-form-container p { color: var(--muted); margin-bottom: 30px; }
+    form { display: flex; flex-direction: column; gap: 20px; }
+    input, textarea { padding: 16px; border: 2px solid #fef3c7; border-radius: 12px; font-family: inherit; font-size: 1rem; background: #fffbeb; transition: border-color 0.3s, box-shadow 0.3s; }
+    input:focus, textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.15); background: white; }
+    .map-container { position: relative; min-height: 500px; width: 100%; }
+    iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+    /* Footer */
+    footer { border-top: 1px solid rgba(245, 158, 11, 0.2); padding: 60px 0 24px; margin-top: 80px; }
+    .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+    .footer-col h4 { font-size: 1.3rem; margin: 0 0 20px; color: var(--primary-dark); }
+    .footer-col p, .footer-col a { color: var(--muted); text-decoration: none; margin-bottom: 12px; display: block; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--primary); }
+    .social-links { display: flex; gap: 16px; margin-top: 16px; }
+    .social-links a { width: 44px; height: 44px; background: #fef3c7; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-dark); transition: all 0.3s; }
+    .social-links a:hover { background: var(--primary); color: white; transform: translateY(-4px); box-shadow: 0 6px 15px rgba(245, 158, 11, 0.3); }
+    .social-links svg { width: 20px; height: 20px; fill: currentColor; }
+    .copyright { text-align: center; color: var(--muted); font-size: 0.95rem; border-top: 1px solid rgba(245, 158, 11, 0.2); padding-top: 24px; }
+
+    /* Detail Page Modal Styles */
+    .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(69, 26, 3, 0.8); z-index: 1000; display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; padding: 20px; backdrop-filter: blur(5px); }
+    .modal-overlay.active { display: flex; opacity: 1; }
+    .modal-content { background: var(--card); border-radius: 24px; width: 100%; max-width: 1000px; max-height: 90vh; overflow-y: auto; display: grid; grid-template-columns: 1fr 1.2fr; position: relative; transform: translateY(40px) scale(0.95); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 30px 60px rgba(0,0,0,0.3); }
+    .modal-overlay.active .modal-content { transform: translateY(0) scale(1); }
+    .modal-close { position: absolute; top: 20px; right: 20px; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; box-shadow: 0 4px 15px rgba(0,0,0,0.1); cursor: pointer; font-size: 24px; display: flex; align-items: center; justify-content: center; z-index: 10; transition: transform 0.2s; color: var(--text); }
+    .modal-close:hover { transform: scale(1.1) rotate(90deg); color: var(--primary); }
+    .modal-img-wrapper { position: relative; width: 100%; height: 100%; min-height: 400px; }
+    .modal-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+    .modal-info { padding: 50px 40px; display: flex; flex-direction: column; }
+    .modal-title { font-size: 2.4rem; margin: 0 0 12px; color: var(--text); line-height: 1.2; }
+    .modal-price { font-size: 2.2rem; color: var(--accent); font-weight: bold; margin-bottom: 24px; }
+    .modal-desc { color: var(--muted); margin-bottom: 30px; line-height: 1.8; font-size: 1.05rem; }
+    .modal-features { margin-bottom: 40px; padding: 0; list-style: none; }
+    .modal-features li { margin-bottom: 12px; color: var(--text); display: flex; align-items: flex-start; gap: 12px; font-size: 1.05rem; }
+    .modal-features li::before { content: '✓'; color: white; background: var(--primary); border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; flex-shrink: 0; }
+    .modal-actions { display: flex; gap: 16px; margin-top: auto; }
+    .modal-actions .btn { flex: 1; text-align: center; }
+
+    /* Intro Modal Styles */
+    .intro-modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0.4s; padding: 20px; backdrop-filter: blur(8px); }
+    .intro-modal-overlay.active { opacity: 1; visibility: visible; }
+    .intro-modal-content { background: var(--card); border-radius: 20px; width: 100%; max-width: 600px; padding: 40px; text-align: center; position: relative; transform: translateY(30px) scale(0.95); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 20px 50px rgba(0,0,0,0.4); border: 4px solid var(--primary); }
+    .intro-modal-overlay.active .intro-modal-content { transform: translateY(0) scale(1); }
+    .intro-modal-content h2 { color: var(--text); font-size: 2.2rem; margin-top: 0; margin-bottom: 20px; }
+    .intro-modal-content p { color: var(--muted); font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px; }
+    .intro-modal-content .tech-stack { display: flex; justify-content: center; gap: 12px; margin-bottom: 30px; flex-wrap: wrap; }
+    .intro-modal-content .tech-badge { background: #fef3c7; color: var(--primary-dark); padding: 6px 12px; border-radius: 20px; font-weight: bold; font-size: 0.9rem; }
+    .intro-modal-content .price-tag { display: inline-block; background: var(--primary); color: white; padding: 10px 20px; border-radius: 10px; font-size: 1.4rem; font-weight: bold; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3); }
+    .intro-close-btn { background: var(--text); color: white; border: none; padding: 12px 30px; border-radius: 50px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: background 0.3s; }
+    .intro-close-btn:hover { background: var(--primary-dark); }
+
+    @media(max-width: 900px) {
+      .hero { flex-direction: column; text-align: center; padding: 40px 20px; }
+      .hero-right { width: 70%; margin-top: 40px; }
+      .cta-row { justify-content: center; }
+      .contact-section { grid-template-columns: 1fr; }
+      .map-container { min-height: 350px; }
+      .modal-content { grid-template-columns: 1fr; }
+      .modal-img-wrapper { height: 300px; min-height: 300px; }
+      .modal-img { position: relative; }
+      .modal-info { padding: 30px 20px; }
+    }
+    @media(max-width: 600px) {
+      .nav-links { display: none; }
+      .hero h1 { font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="#" class="brand">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        Apicoltura d'Oro
+      </a>
+      <nav class="nav-links">
+        <a href="#catalog" class="link">I Nostri Mieli</a>
+        <a href="#process" class="link">La Produzione</a>
+        <a href="#contact" class="link">Contatti</a>
+      </nav>
+      <a href="tel:+393331234567" class="tel">+39 333 123 4567</a>
+    </header>
+
+    <section class="hero" aria-label="Hero">
+      <div class="hero-left">
+        <h1>Gusto autentico, <span>direttamente dall'alveare.</span></h1>
+        <p>Scopri il nostro miele puro e artigianale. Dalla natura alla tua tavola, acquista i nostri migliori mieli locali, raccolti con amore e rispetto per le api.</p>
+        <div class="cta-row">
+          <a class="btn" href="#catalog">Acquista Ora</a>
+          <a class="btn alt" href="#contact">Prenota un Ritiro</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-img-container">
+          <img src="img/honey_1.jpg" alt="Miele fresco">
+        </div>
+        <div class="badge">
+          <span>100%</span>
+          <small>Naturale</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="features" aria-label="Perché scegliere noi">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Qualità Garantita</h3>
+        <p>Miele non pastorizzato e non filtrato per mantenere intatte tutte le proprietà nutritive e il sapore originale.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        </div>
+        <h3>Passione Locale</h3>
+        <p>Le nostre api bottinano solo nei fiori del nostro territorio, regalandoci un prodotto unico e a chilometro zero.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+        </div>
+        <h3>Ritiro Veloce</h3>
+        <p>Prenota online e ritira nel nostro punto vendita in totale comodità, oppure scegli la spedizione rapida.</p>
+      </div>
+    </section>
+
+    <section id="catalog" class="section-title">
+      <h2>I Nostri Mieli</h2>
+      <p>Esplora la nostra selezione di mieli artigianali, ognuno con le proprie note aromatiche e benefici unici per la tua salute.</p>
+    </section>
+
+    <section class="catalog" aria-label="Catalogo">
+      <!-- Prodotto 1 -->
+      <article class="product">
+        <a class="img-link" onclick="openModal('Miele di Millefiori', '€ 12,00', 'Un miele classico, versatile e ricco di sfumature, raccolto dalle fioriture spontanee delle nostre colline. Ottimo per dolcificare o per accompagnare formaggi.', 'img/honey_1.jpg')">
+          <img src="img/honey_1.jpg" alt="Miele di Millefiori">
+          <div class="product-overlay">
+            <span class="view-btn">Scopri di più</span>
+          </div>
+        </a>
+        <div class="product-content">
+          <a class="title" onclick="openModal('Miele di Millefiori', '€ 12,00', 'Un miele classico, versatile e ricco di sfumature, raccolto dalle fioriture spontanee delle nostre colline. Ottimo per dolcificare o per accompagnare formaggi.', 'img/honey_1.jpg')">Miele di Millefiori</a>
+          <div class="desc">Vasetto da 500g. Sapore delicato e consistenza cristallizzata.</div>
+          <div class="product-bottom">
+            <div class="price">€ 12,00</div>
+            <button class="add-to-cart" aria-label="Aggiungi al carrello" onclick="alert('Aggiunto al carrello!')">
+              <svg viewBox="0 0 24 24"><path d="M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-8.9-5h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1.003 1.003 0 0 0 20 4H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2z"/></svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Prodotto 2 -->
+      <article class="product">
+        <a class="img-link" onclick="openModal('Miele di Acacia', '€ 15,50', 'Miele limpido e liquido, dal sapore molto dolce e delicato con note di vaniglia. Perfetto per i bambini e per dolcificare le bevande senza alterarne il sapore.', 'img/honey_3.jpg')">
+          <img src="img/honey_3.jpg" alt="Miele di Acacia">
+          <div class="product-overlay">
+            <span class="view-btn">Scopri di più</span>
+          </div>
+        </a>
+        <div class="product-content">
+          <a class="title" onclick="openModal('Miele di Acacia', '€ 15,50', 'Miele limpido e liquido, dal sapore molto dolce e delicato con note di vaniglia. Perfetto per i bambini e per dolcificare le bevande senza alterarne il sapore.', 'img/honey_3.jpg')">Miele di Acacia</a>
+          <div class="desc">Vasetto da 500g. Purissimo, dal colore chiaro e aroma vanigliato.</div>
+          <div class="product-bottom">
+            <div class="price">€ 15,50</div>
+            <button class="add-to-cart" aria-label="Aggiungi al carrello" onclick="alert('Aggiunto al carrello!')">
+              <svg viewBox="0 0 24 24"><path d="M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-8.9-5h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1.003 1.003 0 0 0 20 4H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2z"/></svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Prodotto 3 -->
+      <article class="product">
+        <a class="img-link" onclick="openModal('Miele di Castagno', '€ 14,00', 'Miele dal colore scuro, sapore deciso e retrogusto amarognolo. Ricco di sali minerali, è il compagno ideale per formaggi stagionati o carni.', 'img/honey_4.jpg')">
+          <img src="img/honey_4.jpg" alt="Miele di Castagno">
+          <div class="product-overlay">
+            <span class="view-btn">Scopri di più</span>
+          </div>
+        </a>
+        <div class="product-content">
+          <a class="title" onclick="openModal('Miele di Castagno', '€ 14,00', 'Miele dal colore scuro, sapore deciso e retrogusto amarognolo. Ricco di sali minerali, è il compagno ideale per formaggi stagionati o carni.', 'img/honey_4.jpg')">Miele di Castagno</a>
+          <div class="desc">Vasetto da 500g. Sapore intenso, leggermente amaro e persistente.</div>
+          <div class="product-bottom">
+            <div class="price">€ 14,00</div>
+            <button class="add-to-cart" aria-label="Aggiungi al carrello" onclick="alert('Aggiunto al carrello!')">
+              <svg viewBox="0 0 24 24"><path d="M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-8.9-5h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1.003 1.003 0 0 0 20 4H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2z"/></svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Prodotto 4 -->
+      <article class="product">
+        <a class="img-link" onclick="openModal('Favo di Miele', '€ 18,00', 'Il miele nella sua forma più grezza e pura, esattamente come lo creano le api. Masticare la cera d\'api offre un\'esperienza sensoriale unica e apporta benefici per il cavo orale.', 'img/beekeper_honeycomb_1.jpg')">
+          <img src="img/beekeper_honeycomb_1.jpg" alt="Favo di Miele">
+          <div class="product-overlay">
+            <span class="view-btn">Scopri di più</span>
+          </div>
+        </a>
+        <div class="product-content">
+          <a class="title" onclick="openModal('Favo di Miele', '€ 18,00', 'Il miele nella sua forma più grezza e pura, esattamente come lo creano le api. Masticare la cera d\'api offre un\'esperienza sensoriale unica e apporta benefici per il cavo orale.', 'img/beekeper_honeycomb_1.jpg')">Favo di Miele Grezzo</a>
+          <div class="desc">Porzione da 300g. Naturale al 100%, con cera commestibile e propoli.</div>
+          <div class="product-bottom">
+            <div class="price">€ 18,00</div>
+            <button class="add-to-cart" aria-label="Aggiungi al carrello" onclick="alert('Aggiunto al carrello!')">
+              <svg viewBox="0 0 24 24"><path d="M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-8.9-5h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1.003 1.003 0 0 0 20 4H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2z"/></svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Prodotto 5 -->
+      <article class="product">
+        <a class="img-link" onclick="openModal('Bustine Monodose', '€ 8,50', 'Pratiche bustine monodose di miele di acacia. Ideali per dolcificare le tue bevande al bar, in ufficio o in viaggio, con la massima igiene e praticità.', 'img/honey_sackets.jpg')">
+          <img src="img/honey_sackets.jpg" alt="Bustine Monodose">
+          <div class="product-overlay">
+            <span class="view-btn">Scopri di più</span>
+          </div>
+        </a>
+        <div class="product-content">
+          <a class="title" onclick="openModal('Bustine Monodose', '€ 8,50', 'Pratiche bustine monodose di miele di acacia. Ideali per dolcificare le tue bevande al bar, in ufficio o in viaggio, con la massima igiene e praticità.', 'img/honey_sackets.jpg')">Bustine Monodose</a>
+          <div class="desc">Confezione da 50pz. Miele di acacia, pratiche per ogni occasione.</div>
+          <div class="product-bottom">
+            <div class="price">€ 8,50</div>
+            <button class="add-to-cart" aria-label="Aggiungi al carrello" onclick="alert('Aggiunto al carrello!')">
+              <svg viewBox="0 0 24 24"><path d="M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-8.9-5h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1.003 1.003 0 0 0 20 4H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2z"/></svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Prodotto 6 -->
+      <article class="product">
+        <a class="img-link" onclick="openModal('Pane e Miele', '€ 6,00', 'Un connubio perfetto di sapori. Il nostro miele spalmato su pane fresco locale. Perfetto per una colazione nutriente ed energizzante.', 'img/honey_bread_2.jpg')">
+          <img src="img/honey_bread_2.jpg" alt="Pane e Miele">
+          <div class="product-overlay">
+            <span class="view-btn">Scopri di più</span>
+          </div>
+        </a>
+        <div class="product-content">
+          <a class="title" onclick="openModal('Pane e Miele', '€ 6,00', 'Un connubio perfetto di sapori. Il nostro miele spalmato su pane fresco locale. Perfetto per una colazione nutriente ed energizzante.', 'img/honey_bread_2.jpg')">Kit Colazione Dolce</a>
+          <div class="desc">Vasetto 250g + filoncino rustico. L'abbinamento perfetto e tradizionale.</div>
+          <div class="product-bottom">
+            <div class="price">€ 6,00</div>
+            <button class="add-to-cart" aria-label="Aggiungi al carrello" onclick="alert('Aggiunto al carrello!')">
+              <svg viewBox="0 0 24 24"><path d="M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-8.9-5h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1.003 1.003 0 0 0 20 4H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2z"/></svg>
+            </button>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="process" class="process" aria-label="Il Nostro Processo">
+      <h2>Dalla Natura al Vasetto</h2>
+      <div class="process-steps">
+        <div class="step">
+          <img src="img/bee_on_flower_1.jpg" alt="Ape su fiore" class="step-img">
+          <h4>1. Raccolta</h4>
+          <p>Le nostre api bottinano il nettare dai fiori incontaminati del territorio.</p>
+        </div>
+        <div class="step">
+          <img src="img/bees_in_honeycomb.jpg" alt="Api nell'alveare" class="step-img">
+          <h4>2. Maturazione</h4>
+          <p>Il nettare viene trasformato in miele all'interno dell'alveare e lasciato maturare.</p>
+        </div>
+        <div class="step">
+          <img src="img/beekeper_honeycomb_3.jpg" alt="Apicoltore al lavoro" class="step-img">
+          <h4>3. Estrazione</h4>
+          <p>Estraiamo il miele a freddo mediante centrifuga per non alterarne le proprietà.</p>
+        </div>
+        <div class="step">
+          <img src="img/honey_6.jpg" alt="Miele nel vasetto" class="step-img">
+          <h4>4. Confezionamento</h4>
+          <p>Viene infine invasettato a mano e preparato per arrivare sulla tua tavola.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section" aria-label="Contatti e Mappa">
+      <div class="contact-form-container">
+        <h2>Vieni a trovarci o Scrivici</h2>
+        <p>Siamo a tua disposizione per informazioni, ordini speciali o per farti degustare i nostri prodotti in sede.</p>
+        
+        <form id="contactForm" action="#" method="post" onsubmit="handleSubmit(event)">
+          <input type="text" name="name" placeholder="Il tuo Nome e Cognome" required>
+          <input type="email" name="email" placeholder="La tua Email" required>
+          <input type="tel" name="phone" placeholder="Il tuo Numero di Telefono">
+          <textarea name="message" placeholder="Come possiamo aiutarti?" rows="5" required></textarea>
+          <button class="btn" type="submit">Invia Messaggio</button>
+        </form>
+
+        <div style="margin-top: 40px;">
+          <h3 style="color: var(--primary-dark); margin-bottom: 10px;">Orari di Apertura</h3>
+          <p style="margin: 0; color: var(--muted); line-height: 1.8;">
+            Lunedì - Venerdì: 09:00 – 19:00<br>
+            Sabato: 09:00 – 13:00<br>
+            Domenica: Chiuso
+          </p>
+        </div>
+      </div>
+      <div class="map-container">
+        <!-- Da inserire link embed di Google Maps -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11545.968037373981!2d11.189531548651034!3d43.86644265780517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132a5a5cc938161b%3A0x6a0c50f9a2fb6ef1!2sFirenze%20FI!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Mappa del negozio"></iframe>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-col">
+          <h4>Apicoltura d'Oro</h4>
+          <p>Produzione artigianale di miele locale, polline, pappa reale e propoli.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zM17.5 6.5h.01"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Prodotti</h4>
+          <a href="#catalog">Miele di Millefiori</a>
+          <a href="#catalog">Miele di Acacia</a>
+          <a href="#catalog">Miele di Castagno</a>
+          <a href="#catalog">Favo di Miele</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contatti</h4>
+          <a href="tel:+393331234567">Tel: +39 333 123 4567</a>
+          <a href="mailto:info@apicolturadoro.it">Email: info@apicolturadoro.it</a>
+          <p>Via dei Campi 12<br>50100 Firenze (FI)</p>
+        </div>
+        <div class="footer-col">
+          <h4>Informazioni</h4>
+          <a href="#">Termini e Condizioni</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Spedizioni e Resi</a>
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; 2026 Apicoltura d'Oro. Tutti i diritti riservati.
+      </div>
+    </footer>
+  </div>
+
+  <!-- Modal per Dettaglio Prodotto -->
+  <div class="modal-overlay" id="productModal" onclick="closeModalOnOutsideClick(event)">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <div class="modal-img-wrapper">
+        <img id="modalImg" src="" alt="Prodotto" class="modal-img">
+      </div>
+      <div class="modal-info">
+        <h2 id="modalTitle" class="modal-title">Titolo</h2>
+        <div id="modalPrice" class="modal-price">€ 0,00</div>
+        <div id="modalDesc" class="modal-desc">Descrizione...</div>
+        <ul class="modal-features">
+          <li>100% Naturale e artigianale</li>
+          <li>Senza zuccheri aggiunti</li>
+          <li>Prodotto locale a km 0</li>
+        </ul>
+        <div class="modal-actions">
+          <button class="btn" onclick="alert('Prodotto aggiunto al carrello!'); closeModal();">Aggiungi al Carrello</button>
+          <a class="btn alt" href="tel:+393331234567">Chiama Ora</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Intro Modal (Sito in vendita) -->
+  <div class="intro-modal-overlay" id="introModal">
+    <div class="intro-modal-content">
+      <h2>Sito Dimostrativo in Vendita</h2>
+      <p>Questo sito web è una demo professionale creata per mostrare le potenzialità di una landing page per la vendita di miele e prodotti locali. Ha ottime performance, è <strong>ottimizzato SEO</strong> e include un vero <strong>modulo di contatto</strong>.</p>
+      <div class="tech-stack">
+        <span class="tech-badge">PHP</span>
+        <span class="tech-badge">JavaScript</span>
+        <span class="tech-badge">CSS3</span>
+        <span class="tech-badge">HTML5</span>
+      </div>
+      <div class="price-tag">In vendita a partire da € 100</div>
+      <div>
+        <button class="intro-close-btn" onclick="closeIntroModal()">Esplora la Demo</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Gestione Form di Contatto
+    function handleSubmit(e){
+      e.preventDefault();
+      const f = e.target;
+      alert('Grazie per averci contattato! Il tuo messaggio è stato inviato con successo.');
+      f.reset();
+    }
+
+    // Gestione Modal (Pagine Dettaglio Prodotto Simulation)
+    const modal = document.getElementById('productModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalPrice = document.getElementById('modalPrice');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalImg = document.getElementById('modalImg');
+
+    function openModal(title, price, desc, imgSrc) {
+      modalTitle.textContent = title;
+      modalPrice.textContent = price;
+      modalDesc.textContent = desc;
+      modalImg.src = imgSrc;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent scrolling
+    }
+
+    function closeModal() {
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto'; // Re-enable scrolling
+    }
+
+    function closeModalOnOutsideClick(e) {
+      if (e.target === modal) {
+        closeModal();
+      }
+    }
+    
+    // Keydown per chiudere la modal con Esc
+    document.addEventListener('keydown', function(event){
+      if(event.key === "Escape" && modal.classList.contains('active')){
+        closeModal();
+      }
+      if(event.key === "Escape" && introModal.classList.contains('active')){
+        closeIntroModal();
+      }
+    });
+
+    // Gestione Intro Modal all'apertura della pagina
+    const introModal = document.getElementById('introModal');
+    
+    // Usa un setTimeout diretto senza attendere l'evento 'load', 
+    // poiché lo script è a fine pagina e il DOM è già pronto.
+    setTimeout(() => {
+      if (introModal) {
+        introModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }, 400); // 400ms delay per un effetto di apparizione gradevole
+
+    function closeIntroModal() {
+      introModal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+  </script>
+</body>
+</html>
